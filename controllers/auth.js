@@ -1,5 +1,6 @@
 var express = require('express');
 var db = require('../models');
+var passport = require('../config/ppConfig');
 var router = express.Router();
 
 router.get('/signup', function(req, res) {
@@ -30,5 +31,10 @@ router.post('/signup', function(req, res) {
 router.get('/login', function(req, res) {
   res.render('auth/login');
 });
+
+router.post('/login', passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/auth/login'
+}));
 
 module.exports = router;
