@@ -14,7 +14,7 @@ describe('Auth Controller', function() {
       request(app).post('/auth/signup')
       .set('Content-Type', 'application/x-www-form-urlencoded')
       .send({
-        email: 'foobar@foobar.com',
+        email: 'new@new.co',
         name: 'Brian',
         password: 'password'
       })
