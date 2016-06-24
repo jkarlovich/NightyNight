@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('./config/ppConfig');
 var flash = require('connect-flash');
+var isLoggedIn = require('./middleware/middlewear');
 var app = express();
 
 app.set('view engine', 'ejs');
@@ -24,7 +25,7 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 
-app.get('/profile', function(req, res) {
+app.get('/profile', isLoggedIn, function(req, res) {
   res.render('profile');
 });
 
