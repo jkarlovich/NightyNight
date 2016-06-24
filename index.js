@@ -3,6 +3,7 @@ var ejsLayouts = require('express-ejs-layouts');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('./config/ppConfig');
+var flash = require('connect-flash');
 var app = express();
 
 app.set('view engine', 'ejs');
@@ -15,6 +16,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 

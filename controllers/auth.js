@@ -16,14 +16,16 @@ router.post('/signup', function(req, res) {
     }
   }).spread(function(user, created) {
     if (created) {
-      console.log('user created!');
-      res.redirect('/');
+      passport.authenticate('local', {
+          successRedirect: '/',
+        successFlash: 'Account created and logged in'
+      })(req, res);
     } else {
-      console.log('user with that email already exits');
+      req.flash('error', 'Email already exists');
       res.redirect('/auth/signup');
     }
   }).catch(function(error) {
-    console.log('error occurred', error.message);
+    req.flash('error occurred', error.message);
     res.redirect('/auth/signup');
   });
 });
@@ -34,7 +36,14 @@ router.get('/login', function(req, res) {
 
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/',
-  failureRedirect: '/auth/login'
+  failureRedirect: '/auth/login',
+  failureFlash: 'Invalid username and/or password',
+  successFlash: 'You have logged in'
 }));
 
+router.get('/logout', function(req, res) {
+  req.logout();
+  req.flash('success', 'You have logged out');
+  res.redirect('/');
+});
 module.exports = router;
