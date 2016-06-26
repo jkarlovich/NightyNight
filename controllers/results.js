@@ -29,7 +29,7 @@ router.get('/', function(req, res) {
   },  function(error, response, body) {
     if(!error && response.statusCode === 200) {
       var events = JSON.parse(body);
-      res.render('results', {events: events});
+      res.render('results', {events: events, search: req.query.search});
     }
   });
 });
