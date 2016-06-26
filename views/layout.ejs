@@ -3,15 +3,40 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Authentication</title>
+    <title>OnTheTown</title>
 
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
     <div class="container">
-      <h1>Authentication</h1>
+      <h1>OnTheTown</h1>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/profile">Profile</a></li>
+          <li><a href="/cart">Cart</a></li>
+          <li><a href="/auth/logout">Logout</a></li>
+        </ul>
+        <button type="button" class="nav-button">LogIn/SignUp</button>
+        <form method="POST" action="/auth/login" class="hidden">
+          <h1>Signup or Login to Your Account</h1>
+          <label for="name">Name:</label>
+          <input type="text" placeholder="Marilyn Monroe">
+          <label for="email">email:</label>
+          <input type="url" placeholder="me@google.com">
+          <label for="password">Password:</label>
+          <input type="password">
+          <input type="submit">
+        </form>
+      </nav>
       <%- body %>
+      <footer>
+      <span><a href="/contact">Contact Us</a></span>
+        <span>&#169; OnTheTown</span>
+        <span>Website Created By: <a href="http:www.jamiekarlovich.com">Jamie Karlovich</a></span>
+
     </div>
 
     <script src="//code.jquery.com/jquery.js"></script>
