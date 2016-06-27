@@ -1,6 +1,9 @@
-<h2><%=result.title%></h2>
-<h3><%=result.type%><%=result.area%></h3>
-<h3><%=result.dates%></h3>
-<h3><%=result.description%></h3>
-
-<!-- There are # group ons available -->
+  <h2><a href="/details/<%=details.id%>"><%=details.title%></a></h2>
+  <% if(details.images != null && details.images.hasPropertyOf(image)) { %>
+    <img src="<%=details.images.image[0].small.url%>"/>
+ <% }; %>
+  <h3><%=details.price%></h3>
+ <h3><%=details.start_time%> - <%=details.stop_time%> <a href="<%=details.venue_url%>"><%=details.venue_name%></a></h3>
+  <h3><%=details.address%> <%=details.city%>, <%=details.region_abbr%> <%=details.postal_code%></h3>
+  <h3><%=details.description%></h3>
+<div class="maps"></div>

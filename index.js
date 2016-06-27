@@ -31,6 +31,21 @@ app.get('/profile', isLoggedIn, function(req, res) {
   res.render('profile');
 });
 
+
+app.get('/nearby', function(req, res) {
+  request({
+    url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
+    qs: {
+      key: 'AIzaSyBJUrtRrvAu952jdcqhxfM_f97EfQaZEek',
+      location: '47.608,-122.343',
+      rankby: 'distance',
+      keyword: 'restaurant'
+    }
+  }, function(error, response, body) {
+    var foobar = JSON.parse(body);
+    res.send({foobar: foobar});
+  });
+});
 // app.get('/results', function(req, res) {
 //   var results = {name: req.query.search};
 //   res.render('results', {results: results});

@@ -26,3 +26,9 @@ li{
 nav-button {
   display:inline:block;
 }
+
+.map {
+  height: 400px;
+  width: 400px;
+  background-color:blue;
+}

@@ -7,7 +7,8 @@ router.get('/', function(req, res) {
     url: 'http://api.eventful.com/json/events/search',
     qs: {
       app_key: 'T9BQCjsdtBGJxCZS',
-      keywords: req.query.search
+      keywords: req.query.search,
+      image_sizes: 'small'
     }
   },  function(error, response, body) {
     if(!error && response.statusCode === 200) {
