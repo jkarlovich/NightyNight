@@ -16,13 +16,19 @@
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/profile">Profile</a></li>
-          <li><a href="/cart">Cart</a></li>
           <li><a href="/auth/logout">Logout</a></li>
         </ul>
-        <button type="button" class="nav-button">LogIn/SignUp</button>
-      <!--   <a href="/auth/signup">Signup</a>
-        <a href="/auth/login">Login</a> -->
+        <button type="button" class="nav-button"><a href="/auth/login">LogIn</a></button>
         <form method="POST" action="/auth/login" class="hidden">
+          <h1>Login to Your Account</h1>
+          <label for="email">email:</label>
+          <input type="url" placeholder="me@google.com">
+          <label for="password">Password:</label>
+          <input type="password">
+          <input type="submit">
+        </form>
+        <button type="button class="nav-button"><a href="/auth/signup">SignUp</a></button>
+        <form method="POST" action="auth/signup" class="hidden">
           <h1>Signup or Login to Your Account</h1>
           <label for="name">Name:</label>
           <input type="text" placeholder="Marilyn Monroe">

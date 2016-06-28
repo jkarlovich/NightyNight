@@ -46,10 +46,7 @@ app.get('/nearby', function(req, res) {
     res.send({foobar: foobar});
   });
 });
-// app.get('/results', function(req, res) {
-//   var results = {name: req.query.search};
-//   res.render('results', {results: results});
-// });
+
 app.use('/results', require('./controllers/results'));
 app.use('/details', require('./controllers/details'));
 app.use('/auth', require('./controllers/auth'));
