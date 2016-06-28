@@ -18,26 +18,50 @@
           <li><a href="/profile">Profile</a></li>
           <li><a href="/auth/logout">Logout</a></li>
         </ul>
-        <button type="button" class="nav-button"><a href="/auth/login">LogIn</a></button>
-        <form method="POST" action="/auth/login" class="hidden">
-          <h1>Login to Your Account</h1>
-          <label for="email">email:</label>
-          <input type="url" placeholder="me@google.com">
-          <label for="password">Password:</label>
-          <input type="password">
-          <input type="submit">
-        </form>
-        <button type="button class="nav-button"><a href="/auth/signup">SignUp</a></button>
-        <form method="POST" action="auth/signup" class="hidden">
-          <h1>Signup or Login to Your Account</h1>
-          <label for="name">Name:</label>
-          <input type="text" placeholder="Marilyn Monroe">
-          <label for="email">email:</label>
-          <input type="url" placeholder="me@google.com">
-          <label for="password">Password:</label>
-          <input type="password">
-          <input type="submit">
-        </form>
+        <button type="button" class="nav-button" data-toggle="modal" data-target="#myModal">LogIn</button>
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <form method="POST" action="/auth/login" >
+                  <h1>Login to Your Account</h1>
+                  <label for="email">email:</label>
+                  <input type="url" placeholder="me@google.com">
+                  <label for="password">Password:</label>
+                  <input type="password">
+                  <input type="submit">
+                </form>
+              </div>
+              <div class="modal-footer">
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="nav-button" data-toggle="modal" data-target="#secondModal">SignUp</button>
+        <div class="modal fade" id="secondModal" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <form method="POST" action="auth/signup">
+                  <h1>Signup or Login to Your Account</h1>
+                  <label for="name">Name:</label>
+                  <input type="text" placeholder="Marilyn Monroe">
+                  <label for="email">email:</label>
+                  <input type="url" placeholder="me@google.com">
+                  <label for="password">Password:</label>
+                  <input type="password">
+                  <input type="submit">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </nav>
       <%- body %>
       <footer>
