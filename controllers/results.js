@@ -12,10 +12,16 @@ router.get('/', function(req, res) {
     }
   },  function(error, response, body) {
     if(!error && response.statusCode === 200) {
-      var events = JSON.parse(body);
+      var data = JSON.parse(body);
       //res.send({events:events});
       //res.send({events: events.events.event[0].image.small.url});
-      res.render('results', {events: events, search: req.query.search});
+      data.events.event.forEach(function(event){
+        console.log(event);
+        if(event.description !== null) {
+          event.description = event.description.replace(/<p>|<\/p>|<em>|<\/em>|<a href=.*?>|<\/a>|<br>|<\/br>|<ul>|<\/ul>|<li>|<\/li>|<strong>|<\/strong>/g, "");
+        }
+      });
+      res.render('results', {events: data, search: req.query.search});
     }
   });
 });

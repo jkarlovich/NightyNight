@@ -1,5 +1,5 @@
   <h2><a href="/details/<%=details.id%>"><%=details.title%></a></h2>
-  <% if(details.images != null && details.images.hasPropertyOf(image)) { %>
+  <% if(details.images != null && details.images.hasOwnProperty('image')) { %>
     <img src="<%=details.images.image[0].small.url%>"/>
  <% }; %>
   <h3><%=details.price%></h3>
