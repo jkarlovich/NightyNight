@@ -1,7 +1,7 @@
 <h1> Results for <%=search%></h1>
 <%events.events.event.forEach(function(instance) { %>
   <h2><a href="/details/<%=instance.id%>"><%=instance.title%></a></h2>
-  <% if(instance.image != null) { %>
+  <% if(instance.image !== null) { %>
   <img src="<%=instance.image.small.url%>"/>
    <% }; %>
  <h3><%=instance.start_time%>, <a href="<%=instance.venue_url%>"><%=instance.venue_name%></a></h3>

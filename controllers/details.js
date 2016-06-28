@@ -6,7 +6,7 @@ router.get('/:id', function(req, res){
   request({
     url:'http://api.eventful.com/json/events/get',
     qs: {
-      app_key: 'T9BQCjsdtBGJxCZS',
+      app_key: process.env.EVENTFUL_KEY,
       id: req.params.id
     }
   }, function(error, response, body) {
