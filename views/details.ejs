@@ -7,7 +7,15 @@
     <%  } %>
  <% }; %>
   <h3><%=details.price%></h3>
- <h3><%=details.start_time%> - <%=details.stop_time%> <a href="<%=details.venue_url%>"><%=details.venue_name%></a></h3>
+  <h3><%=details.start_time%> - <%=details.stop_time%> <a href="<%=details.venue_url%>"><%=details.venue_name%></a></h3>
   <h3><%=details.address%> <%=details.city%>, <%=details.region_abbr%> <%=details.postal_code%></h3>
   <h3><%=details.description%></h3>
+  <% if (details.links !== null) { %>
+    <% if(Array.isArray(details.links.link)) { %>
+      <button><a href="<%=details.links.link[0].url%>">Buy Tickets</a></button>
+    <%} else { %>
+      <button><a href="<%=details.links.link.url%>">Buy Tickets</a></button>
+    <% } %>
+  <% } %>
+
 <div class="maps"></div>
