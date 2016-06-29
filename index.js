@@ -45,7 +45,7 @@ app.get('/', function(req, res) {
 app.get('/profile', isLoggedIn, function(req, res) {
   db.user.find({
     where: {
-      id: 4
+      id: req.user.id
     },
     include: [db.show]
   }). then(function(info){
