@@ -18,7 +18,7 @@ router.get('/:id', function(req, res){
         url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
         qs: {
           key: process.env.GOOGLE_KEY,
-          location: '47.608,-122.343',
+          location: details.latitude + "," + details.longitude,
           rankby: 'distance',
           keyword: 'restaurant'
       }
@@ -27,7 +27,6 @@ router.get('/:id', function(req, res){
       res.render('details',{details: details, restaurants: restaurants});
       })
       //res.send({details:details});
-
     }
   });
 });
