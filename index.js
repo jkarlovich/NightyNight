@@ -6,6 +6,8 @@ var passport = require('./config/ppConfig');
 var flash = require('connect-flash');
 var isLoggedIn = require('./middleware/middlewear');
 var request = require('request');
+var moment = require('moment');
+var db = require('./models');
 var app = express();
 
 app.set('view engine', 'ejs');
@@ -27,6 +29,11 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use(function(req, res, next) {
+  res.locals.moment = moment;
+  next();
+});
+
 
 app.get('/', function(req, res) {
   res.render('index');
@@ -37,20 +44,20 @@ app.get('/profile', isLoggedIn, function(req, res) {
 });
 
 
-app.get('/nearby', function(req, res) {
-  request({
-    url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
-    qs: {
-      key: 'AIzaSyBJUrtRrvAu952jdcqhxfM_f97EfQaZEek',
-      location: '47.608,-122.343',
-      rankby: 'distance',
-      keyword: 'restaurant'
-    }
-  }, function(error, response, body) {
-    var foobar = JSON.parse(body);
-    res.send({foobar: foobar});
-  });
-});
+// app.get('/nearby', function(req, res) {
+//   request({
+//     url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
+//     qs: {
+//       key: 'AIzaSyBJUrtRrvAu952jdcqhxfM_f97EfQaZEek',
+//       location: '47.608,-122.343',
+//       rankby: 'distance',
+//       keyword: 'restaurant'
+//     }
+//   }, function(error, response, body) {
+//     var foobar = JSON.parse(body);
+//     res.send({foobar: foobar});
+//   });
+// });
 
 app.use('/results', require('./controllers/results'));
 app.use('/details', require('./controllers/details'));

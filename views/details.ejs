@@ -10,12 +10,25 @@
   <h3><%=details.start_time%> - <%=details.stop_time%> <a href="<%=details.venue_url%>"><%=details.venue_name%></a></h3>
   <h3><%=details.address%> <%=details.city%>, <%=details.region_abbr%> <%=details.postal_code%></h3>
   <h3><%=details.description%></h3>
-  <% if (details.links !== null) { %>
-    <% if(Array.isArray(details.links.link)) { %>
-      <button><a href="<%=details.links.link[0].url%>">Buy Tickets</a></button>
-    <%} else { %>
-      <button><a href="<%=details.links.link.url%>">Buy Tickets</a></button>
-    <% } %>
-  <% } %>
+
+
+  <form action="/details/save" method="POST" id="save">
+    <input type="hidden" name="title" value="<%=details.title%>">
+    <input type="hidden" name="venue" value="<%=details.venue_name%>">
+    <input type="hidden" name="city" value="<%=details.city%>">
+    <input type="hidden" name="state" value="<%=details.region_abbr%>">
+    <input type="hidden" name="zip" value="<%=details.postal_code%>">
+
+    <input type="hidden" name="lat" value="<%=details.latitude%>">
+    <input type="hidden" name="long" value="<%=details.longitude%>">
+      <% if (details.links !== null) { %>
+        <% if(Array.isArray(details.links.link)) { %>
+          <input type="hidden" name="url" value="<%=details.links.link[0].url%>">
+        <%} else { %>
+          <input type="hidden" name="url" value="<%=details.links.link.url%>">
+        <% } %>
+      <% } %>
+    <button type="submit">Buy</button>
+  </form>
 
 <div class="maps"></div>
