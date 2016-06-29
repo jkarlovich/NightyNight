@@ -12,7 +12,7 @@ var geocoder = require('geocoder');
 var app = express();
 
 app.set('view engine', 'ejs');
-app.use(express.static(__dirname + '/public/'));
+app.use(express.static(__dirname + '/public'));
 app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(ejsLayouts);
@@ -56,18 +56,29 @@ app.get('/profile', isLoggedIn, function(req, res) {
 
 //Testing Maps Search:
 
-app.get('/nearby', function(req, res) {
-  request({
-    url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
-    qs: {
-      key: process.env.GOOGLE_KEY,
-      location: '47.608,-122.343',
-      rankby: 'distance',
-      keyword: 'restaurant'
+// app.get('/nearby', function(req, res) {
+//   request({
+//     url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
+//     qs: {
+//       key: process.env.GOOGLE_KEY,
+//       location: '47.608,-122.343',
+//       rankby: 'distance',
+//       keyword: 'restaurant'
+//     }
+//   }, function(error, response, body) {
+//     var restaurants = JSON.parse(body);
+//     res.send({restaurants: restaurants});
+//   });
+// });
+
+app.delete('/delete/:id', function(req, res) {
+  db.userShows.destroy({
+    where: {
+      showId: req.params.id,
+      userId: req.user.id
     }
-  }, function(error, response, body) {
-    var restaurants = JSON.parse(body);
-    res.send({restaurants: restaurants});
+  }).then(function(show){
+    res.send({msg: 'deleted'});
   });
 });
 

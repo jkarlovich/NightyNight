@@ -28,7 +28,8 @@ router.get('/:id', function(req, res){
       }
     }, function(error, response, body) {
       var restaurants = JSON.parse(body);
-      res.render('details',{details: details, restaurants: restaurants});
+      res.render('details', {details: details, restaurants: restaurants});
+      //res.send({restaurants:restaurants});
       })
     }
   });

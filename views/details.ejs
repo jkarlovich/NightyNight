@@ -31,7 +31,7 @@
     <button type="submit">Buy</button>
   </form>
 
-<div class="map"></div>
+<div id="map"></div>
 
 <h2>Restaurants Nearby</h2>
 <% restaurants.results.forEach(function(restaurant) { %>
@@ -42,3 +42,35 @@
     <% }); %>
     </p>
 <% }); %>
+
+    <script>
+    function initMap() {
+      // Create a map object and specify the DOM element for display.
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: <%=details.latitude%>, lng: <%=details.longitude%>},
+        scrollwheel: false,
+        zoom: 8
+      });
+
+      var showPlace = new google.maps.Marker({
+        position: new google.maps.LatLng(<%=details.latitude%>, <%=details.longitude%>),
+        map:map,
+        title: 'Nearby'
+      });
+
+var restaurants = <%-JSON.stringify(restaurants)%>;
+      restaurants.results.forEach(function(place, idx){
+        console.log(place.geometry.location.lat);
+        var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(place.geometry.location.lat, place.geometry.location.lng),
+          map: map,
+          title:'Nearby' + idx
+        });
+      //   marker.addListener('click', function(){
+
+      //   })
+       });
+    }
+    </script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUGysiULRm4y1wOrG5wRk7CFaNl0GLWr4&callback=initMap"></script>
