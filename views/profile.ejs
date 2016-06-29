@@ -1,1 +1,7 @@
 <h2>Profile Page</h2>
+<% info.shows.forEach(function(show) { %>
+  <h2><%=show.title%></h2>
+  <h2><%=show.venue%></h2>
+  <h2><%=show.city%>, <%=show.state%> <%=show.zip%></h2>
+  <h2><a href="<%=show.url%>" target="_blank"><button>Info</button></a></h2>
+<% }); %>

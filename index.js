@@ -43,7 +43,15 @@ app.get('/', function(req, res) {
 });
 
 app.get('/profile', isLoggedIn, function(req, res) {
-  res.render('profile');
+  db.user.find({
+    where: {
+      id: 4
+    },
+    include: [db.show]
+  }). then(function(info){
+    //res.send({info:info});
+    res.render('profile', {info:info});
+  });
 });
 
 //Testing Maps Search:
