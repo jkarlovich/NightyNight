@@ -21,33 +21,34 @@ router.get('/:id', function(req, res){
 });
 
 router.post('/save', function(req, res) {
-  db.show.findOrCreate({
-    where: {
-      title: req.body.title,
-      venue: req.body.venue,
-      city: req.body.city,
-      state: req.body.state,
-      zip: req.body.zip,
-      lat: req.body.lat,
-      long: req.body.long,
-      url: req.body.url
-    }
-  }).spread(function(show){
-    db.user.find({
+    db.show.findOrCreate({
       where: {
-        id: req.user.id
+        title: req.body.title,
+        venue: req.body.venue,
+        city: req.body.city,
+        state: req.body.state,
+        zip: req.body.zip,
+        lat: req.body.lat,
+        long: req.body.long,
+        url: req.body.url
       }
-    }).then(function(user){
-      user.addShow(show);
-      res.render('profile');
-      console.log(show.url);
-      open(show.url, function (err) {
-        if ( err ) throw err;
+    }).spread(function(show){
+      db.user.find({
+        where: {
+          id: req.user.id
+        }
+      }).then(function(user){
+        //if(!user) {res.redirect('login')};
+        user.addShow(show);
+        res.render('profile');
+        console.log(show.url);
+        open(show.url, function (err) {
+          if (err) throw err;
+        });
       });
+    }).catch(function(err){
+      res.status(500).render('error');
     });
-  }).catch(function(err){
-    res.status(500).render('error');
-  });
 });
 
 module.exports = router;

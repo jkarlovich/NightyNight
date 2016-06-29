@@ -8,6 +8,7 @@ var isLoggedIn = require('./middleware/middlewear');
 var request = require('request');
 var moment = require('moment');
 var db = require('./models');
+var geocoder = require('geocoder');
 var app = express();
 
 app.set('view engine', 'ejs');
