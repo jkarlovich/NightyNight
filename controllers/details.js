@@ -16,7 +16,7 @@ router.get('/:id', function(req, res){
     if(!error && response.statusCode === 200) {
       var details = JSON.parse(body);
       if (details.description !== null){
-        details.description = details.description.replace(/<p>|<\/p>|<em>|<\/em>|<a href=.*?>|<\/a>|<br>|<\/br>|<ul>|<\/ul>|<li>|<\/li>|<strong>|<\/strong>/g, "");
+        // details.description = details.description.replace(/<p>|<\/p>|<em>|<\/em>|<a href=.*?>|<\/a>|<br>|<\/br>|<ul>|<\/ul>|<li>|<\/li>|<strong>|<\/strong>/g, "");
       };
       request({
         url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
@@ -50,11 +50,13 @@ router.post('/save', isLoggedIn, function(req, res) {
       db.user.find({
         where: {
           id: req.user.id
-        }
+        },
+        include: [db.show]
       }).then(function(user){
+        // console.log("user:", user, "show:", show);
+        // console.log("show.url:", show.url);
         user.addShow(show);
-        res.render('profile');
-        console.log(show.url);
+        res.render('profile', {info: user});
         open(show.url, function (err) {
           if (err) throw err;
         });
