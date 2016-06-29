@@ -19,7 +19,8 @@ app.use(ejsLayouts);
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
+  cookie: {maxAge: 240000}
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -38,6 +39,7 @@ app.use(function(req, res, next) {
 
 app.get('/', function(req, res) {
   res.render('index');
+  console.log(req.session.lastPage);
 });
 
 app.get('/profile', isLoggedIn, function(req, res) {

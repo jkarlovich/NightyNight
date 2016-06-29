@@ -36,4 +36,9 @@
 <h2>Restaurants Nearby</h2>
 <% restaurants.results.forEach(function(restaurant) { %>
   <h4><%=restaurant.name%></h4>
+  <p>Google Rating: <%=restaurant.rating%></p>
+  <p>Categories:<%restaurant.types.forEach(function(type) { %>
+    <span><%=type%>, </span>
+    <% }); %>
+    </p>
 <% }); %>

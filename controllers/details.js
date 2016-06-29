@@ -3,6 +3,7 @@
  var request = require('request');
  var db = require('../models');
  var open = require('open');
+ var isLoggedIn = require('../middleware/middlewear')
 
 router.get('/:id', function(req, res){
   request({
@@ -26,12 +27,11 @@ router.get('/:id', function(req, res){
       var restaurants = JSON.parse(body);
       res.render('details',{details: details, restaurants: restaurants});
       })
-      //res.send({details:details});
     }
   });
 });
 
-router.post('/save', function(req, res) {
+router.post('/save', isLoggedIn, function(req, res) {
     db.show.findOrCreate({
       where: {
         title: req.body.title,
@@ -49,7 +49,6 @@ router.post('/save', function(req, res) {
           id: req.user.id
         }
       }).then(function(user){
-        //if(!user) {res.redirect('login')};
         user.addShow(show);
         res.render('profile');
         console.log(show.url);
