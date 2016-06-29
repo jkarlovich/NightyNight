@@ -13,20 +13,21 @@
   <% JSON.stringify(currentUser) %>
   <% include partials/alerts %>
     <div class="container">
-      <h1>OnTheTown</h1>
       <nav>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/profile">Profile</a></li>
-          <li><a href="/auth/logout">Logout</a></li>
-        </ul>
-        <button type="button" class="nav-button" data-toggle="modal" data-target="#myModal">LogIn</button>
-        <div class="modal fade" id="myModal" role="dialog">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-              </div>
+        <h1>OnTheTown</h1>
+        <div class="center-nav">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/auth/logout">Logout</a></li>
+          </ul>
+          <button type="button" class="nav-button" data-toggle="modal" data-target="#myModal">LogIn</button>
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
               <div class="modal-body">
                 <form method="POST" action="/auth/login" >
                   <h1>Login to Your Account</h1>
@@ -41,38 +42,40 @@
               </div>
             </div>
           </div>
-        </div>
-        <button type="button" class="nav-button" data-toggle="modal" data-target="#secondModal">SignUp</button>
-        <div class="modal fade" id="secondModal" role="dialog">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-              </div>
-              <div class="modal-body">
-                <form method="POST" action="auth/signup">
-                  <h1>Signup for an Account</h1>
-                  <label for="name">Name:</label>
-                  <input type="text" name="name" placeholder="Marilyn Monroe">
-                  <label for="email">email:</label>
-                  <input type="email" name="email" placeholder="me@google.com">
-                  <label for="password">Password:</label>
-                  <input type="password" name="password">
-                  <input type="submit">
-                </form>
+          </div>
+          <button type="button" class="nav-button" data-toggle="modal" data-target="#secondModal">SignUp</button>
+          <div class="modal fade" id="secondModal" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                  <form method="POST" action="auth/signup">
+                    <h1>Signup for an Account</h1>
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" placeholder="Marilyn Monroe">
+                    <label for="email">email:</label>
+                    <input type="email" name="email" placeholder="me@google.com">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password">
+                    <input type="submit">
+                  </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </nav>
+    <div class="body">
       <%- body %>
-      <footer>
-      <span><a href="/contact">Contact Us</a></span>
-        <span>&#169; OnTheTown</span>
-        <span>Website Created By: <a href="http:www.jamiekarlovich.com">Jamie Karlovich</a></span>
-
     </div>
-
+    <div class="foo">
+      <span><a href="/contact">Contact Us</a></span>
+      <span>&#169; OnTheTown</span>
+      <span>Website Created By: <a href="http:www.jamiekarlovich.com">Jamie Karlovich</a></span>
+    </div>
+  </div>
     <script src="//code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script async defer
