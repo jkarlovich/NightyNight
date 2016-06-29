@@ -14,8 +14,20 @@ router.get('/:id', function(req, res){
   }, function(error, response, body) {
     if(!error && response.statusCode === 200) {
       var details = JSON.parse(body);
+      request({
+        url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
+        qs: {
+          key: process.env.GOOGLE_KEY,
+          location: '47.608,-122.343',
+          rankby: 'distance',
+          keyword: 'restaurant'
+      }
+    }, function(error, response, body) {
+      var restaurants = JSON.parse(body);
+      res.render('details',{details: details, restaurants: restaurants});
+      })
       //res.send({details:details});
-      res.render('details',{details: details});
+
     }
   });
 });

@@ -44,21 +44,22 @@ app.get('/profile', isLoggedIn, function(req, res) {
   res.render('profile');
 });
 
+//Testing Maps Search:
 
-// app.get('/nearby', function(req, res) {
-//   request({
-//     url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
-//     qs: {
-//       key: 'AIzaSyBJUrtRrvAu952jdcqhxfM_f97EfQaZEek',
-//       location: '47.608,-122.343',
-//       rankby: 'distance',
-//       keyword: 'restaurant'
-//     }
-//   }, function(error, response, body) {
-//     var foobar = JSON.parse(body);
-//     res.send({foobar: foobar});
-//   });
-// });
+app.get('/nearby', function(req, res) {
+  request({
+    url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
+    qs: {
+      key: process.env.GOOGLE_KEY,
+      location: '47.608,-122.343',
+      rankby: 'distance',
+      keyword: 'restaurant'
+    }
+  }, function(error, response, body) {
+    var restaurants = JSON.parse(body);
+    res.send({restaurants: restaurants});
+  });
+});
 
 app.use('/results', require('./controllers/results'));
 app.use('/details', require('./controllers/details'));

@@ -32,3 +32,8 @@
   </form>
 
 <div class="maps"></div>
+
+<h2>Restaurants Nearby</h2>
+<% restaurants.results.forEach(function(restaurant) { %>
+  <h4><%=restaurant.name%></h4>
+<% }); %>
