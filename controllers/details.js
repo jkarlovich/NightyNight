@@ -36,17 +36,26 @@ router.get('/:id', function(req, res){
 });
 
 router.post('/save', isLoggedIn, function(req, res) {
+  console.log("title:", req.body.title);
+  console.log("venue:", req.body.venue);
+  console.log("city:", req.body.city);
+  console.log("state:", req.body.state);
+  console.log("zip :", req.body.zip);
+  console.log("lat:", req.body.lat);
+  console.log("long:", req.body.long);
+  console.log("url:", req.body.url);
     db.show.findOrCreate({
       where: {
         title: req.body.title,
         venue: req.body.venue,
         city: req.body.city,
+      },
+      default: {
         state: req.body.state,
         zip: req.body.zip,
         lat: req.body.lat,
         long: req.body.long,
-        url: req.body.url
-      }
+        url: req.body.url}
     }).spread(function(show){
       db.user.find({
         where: {
@@ -57,7 +66,7 @@ router.post('/save', isLoggedIn, function(req, res) {
         // console.log("user:", user, "show:", show);
         // console.log("show.url:", show.url);
         user.addShow(show);
-        res.render('profile', {info: user, show:show});
+        res.redirect('/profile');
       });
     }).catch(function(err){
       res.status(500).render('error');

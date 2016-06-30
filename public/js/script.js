@@ -11,6 +11,11 @@ $(document).ready(function() {
       window.location='/profile';
     });
   });
+
+  $('#save').click(function(e){
+    var url = $('#url').val();
+    open(url);
+  });
  });
 
 

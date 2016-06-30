@@ -29,12 +29,12 @@
           <input type="hidden" name="long" value="<%=details.longitude%>">
             <% if (details.links !== null) { %>
               <% if(Array.isArray(details.links.link)) { %>
-                <input type="hidden" name="url" value="<%=details.links.link[0].url%>">
+                <input type="hidden" id="url" name="url" value="<%=details.links.link[0].url%>">
               <%} else { %>
-                <input type="hidden" name="url" value="<%=details.links.link.url%>">
+                <input type="hidden" id="url" name="url" value="<%=details.links.link.url%>">
               <% } %>
             <% } %>
-          <button type="submit">Buy</button>
+          <button type="submit" id="save">Buy</button>
         </form>
       </div>
 
