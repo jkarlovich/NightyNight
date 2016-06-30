@@ -82,8 +82,14 @@
       var showPlace = new google.maps.Marker({
         position: new google.maps.LatLng(<%=details.latitude%>, <%=details.longitude%>),
         map:map,
-        title: 'Nearby'
+        title: 'Show Venue'
       });
+
+               showPlace.addListener('click', function(){
+        console.log('clicked');
+        var infoWindow = new google.maps.InfoWindow({ content: '<h3>' + showPlace.title +  '</h3>' });
+infoWindow.open(map, showPlace);
+  });
 
 var restaurants = <%-JSON.stringify(restaurants)%>;
       restaurants.results.forEach(function(place, idx){
@@ -91,13 +97,21 @@ var restaurants = <%-JSON.stringify(restaurants)%>;
         var marker = new google.maps.Marker({
           position: new google.maps.LatLng(place.geometry.location.lat, place.geometry.location.lng),
           map: map,
-          title:'Nearby' + idx
+          title:place.name + " " + place.vicinity
         });
-      //   marker.addListener('click', function(){
+        console.log(marker);
 
-      //   })
-       });
-    }
+      marker.addListener('click', function(){
+        console.log('clicked');
+        var infoWindow = new google.maps.InfoWindow({ content: '<p>' + marker.title +  '</p>' });
+infoWindow.open(map, marker);
+      });
+ //         marker.addListener('click', function() {
+ // +      var infoWindow = new google.maps.InfoWindow({ content: '<h3>' + marker.name + '</h3>' });
+ // +      infoWindow.open(map, marker);
+ // +    });
+   });
+    };
     </script>
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUGysiULRm4y1wOrG5wRk7CFaNl0GLWr4&callback=initMap"></script>
