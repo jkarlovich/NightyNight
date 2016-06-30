@@ -18,11 +18,11 @@ $(document).ready(function() {
     window.focus();
   });
 
-  $('#login').click(function(e) {
+  $('#myModal').on('shown.bs.modal', function(e) {
     $('#loginFocus').focus();
   });
 
-  $('#signup').click(function(e) {
+  $('#secondModal').on('shown.bs.modal', function(e) {
     $('#signupFocus').focus();
   });
 
