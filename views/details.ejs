@@ -70,49 +70,45 @@
   </div>
 </div>
 
-    <script>
-    function initMap() {
-      // Create a map object and specify the DOM element for display.
-      var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: <%=details.latitude%>, lng: <%=details.longitude%>},
-        scrollwheel: false,
-        zoom: 14
-      });
+<script>
+  function initMap() {
+  // Create a map object and specify the DOM element for display.
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: <%=details.latitude%>, lng: <%=details.longitude%>},
+      scrollwheel: false,
+      zoom: 14
+    });
 
-      var showPlace = new google.maps.Marker({
-        position: new google.maps.LatLng(<%=details.latitude%>, <%=details.longitude%>),
+    var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+
+    var showPlace = new google.maps.Marker({
+      position: new google.maps.LatLng(<%=details.latitude%>, <%=details.longitude%>),
         map:map,
-        title: 'Show Venue'
-      });
+        title: 'Show Venue',
+        icon: image
+    });
 
-               showPlace.addListener('click', function(){
-        console.log('clicked');
-        var infoWindow = new google.maps.InfoWindow({ content: '<h3>' + showPlace.title +  '</h3>' });
-infoWindow.open(map, showPlace);
-  });
+    showPlace.addListener('click', function(){
+      var infoWindow = new google.maps.InfoWindow({ content: '<h3>' + showPlace.title +  '</h3>' });
+      infoWindow.open(map, showPlace);
+    });
 
-var restaurants = <%-JSON.stringify(restaurants)%>;
-      restaurants.results.forEach(function(place, idx){
-        console.log(place.geometry.location.lat);
-        var marker = new google.maps.Marker({
-          position: new google.maps.LatLng(place.geometry.location.lat, place.geometry.location.lng),
+    var restaurants = <%-JSON.stringify(restaurants)%>;
+    restaurants.results.forEach(function(place, idx){
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(place.geometry.location.lat, place.geometry.location.lng),
           map: map,
           title:place.name + " " + place.vicinity
-        });
-        console.log(marker);
+      });
 
       marker.addListener('click', function(){
-        console.log('clicked');
         var infoWindow = new google.maps.InfoWindow({ content: '<p>' + marker.title +  '</p>' });
-infoWindow.open(map, marker);
+        infoWindow.open(map, marker);
       });
- //         marker.addListener('click', function() {
- // +      var infoWindow = new google.maps.InfoWindow({ content: '<h3>' + marker.name + '</h3>' });
- // +      infoWindow.open(map, marker);
- // +    });
-   });
-    };
-    </script>
+    });
+  };
+</script>
+
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUGysiULRm4y1wOrG5wRk7CFaNl0GLWr4&callback=initMap"></script>
 
