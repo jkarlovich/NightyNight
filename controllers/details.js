@@ -53,16 +53,14 @@ router.post('/save', isLoggedIn, function(req, res) {
           id: req.user.id
         },
         include: [db.show]
-      }).then(function(user){
+      })
+      }).then(function(user) {
         // console.log("user:", user, "show:", show);
         // console.log("show.url:", show.url);
         user.addShow(show);
-        res.render('profile', {info: user});
-        open(show.url, function (err) {
-          if (err) throw err;
-        });
-      });
-    }).catch(function(err){
+        res.render('profile', {info: user, show:show});
+      })
+    .catch(function(err) {
       res.status(500).render('error');
     });
 });
