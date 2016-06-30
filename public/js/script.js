@@ -12,10 +12,20 @@ $(document).ready(function() {
     });
   });
 
-  $('#save').click(function(e){
+  $('#save').click(function(e) {
     var url = $('#url').val();
     open(url);
+    window.focus();
   });
+
+  $('#login').click(function(e) {
+    $('#loginFocus').focus();
+  });
+
+  $('#signup').click(function(e) {
+    $('#signupFocus').focus();
+  });
+
  });
 
 

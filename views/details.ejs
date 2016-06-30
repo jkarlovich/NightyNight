@@ -14,7 +14,7 @@
     <div class="details-row-2-columns">
       <div class="column-top">
         <h3><%=details.price%></h3>
-        <h3><%=details.venue_name%> - <%=details.start_time%></h3>
+        <h3><%=details.venue_name%> - <%=moment(details.start_time, 'YYYY-MM-DD hh:mm:ss').format('M/DD/YY h:mm a');%></h3>
         <h3><%=details.address%> <%=details.city%>, <%=details.region_abbr%> <%=details.postal_code%></h3>
         <p><%=details.description%></p>
 
@@ -103,3 +103,4 @@ var restaurants = <%-JSON.stringify(restaurants)%>;
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUGysiULRm4y1wOrG5wRk7CFaNl0GLWr4&callback=initMap"></script>
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/locale/af.js"></script>

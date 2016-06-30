@@ -9,10 +9,12 @@
             <img class="results-img" src="<%=instance.image.small.url%>"/>
           <% }; %>
         </div>
-        <h3 class="results-h3"><%=instance.venue_name%> - <%=instance.start_time%></h3>
+        <h3 class="results-h3"><%=instance.venue_name%> - <%=moment(instance.start_time, 'YYYY-MM-DD hh:mm:ss').format('M/DD/YY h:mm a');%></h3>
         <h3 class="results-h3"><%=instance.venue_address%> <%=instance.city_name%>, <%=instance.region_abbr%> <%=instance.postal_code%></h3>
         <p class="results-h3"><span class="indent"></span><%=instance.description%></p>
         </div>
       <% }); %>
   </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/locale/af.js"></script>
+

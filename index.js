@@ -42,7 +42,7 @@ app.get('/db', function (request, response) {
        { response.render('pages/db', {results: result.rows} ); }
     });
   });
-})
+});
 
 app.use(function(req, res, next) {
   res.locals.moment = moment;

@@ -20,7 +20,7 @@
           <li><a href="/profile">Profile</a></li>
           <li><a href="/auth/logout">Logout</a></li>
         </ul>
-        <button type="button" class="nav-button" data-toggle="modal" data-target="#myModal">LogIn</button>
+        <button type="button" class="nav-button" data-toggle="modal" data-target="#myModal" id="login">LogIn</button>
         <div class="modal fade" id="myModal" role="dialog">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -33,7 +33,7 @@
                   <div class="form-row-wrap">
                     <div class="form-row">
                       <label for="email">email:</label>
-                      <input type="email" name="email" placeholder="me@google.com">
+                      <input type="email" id="loginFocus" name="email" placeholder="me@google.com">
                     </div>
                   </div>
                   <div class="form-row-wrap">
@@ -50,7 +50,7 @@
             </div>
           </div>
         </div>
-        <button type="button" class="nav-button" data-toggle="modal" data-target="#secondModal">SignUp</button>
+        <button type="button" class="nav-button" data-toggle="modal" data-target="#secondModal" id="signup">SignUp</button>
         <div class="modal fade" id="secondModal" role="dialog">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -62,8 +62,8 @@
                   <h1>Signup for an Account</h1>
                   <div class="form-row-wrap">
                     <div class="form-row">
-                      <label for="name">Name:</label>
-                      <input type="text" name="name" placeholder="Marilyn Monroe">
+                      <label for="name" >Name:</label>
+                      <input type="text"  id="signupFocus" name="name" placeholder="Marilyn Monroe">
                     </div>
                   </div>
                   <div class="form-row-wrap">
