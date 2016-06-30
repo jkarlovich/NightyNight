@@ -54,6 +54,7 @@ app.get('/profile', isLoggedIn, function(req, res) {
   });
 });
 
+// app.get()
 //Testing Maps Search:
 
 // app.get('/nearby', function(req, res) {

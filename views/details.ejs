@@ -1,47 +1,74 @@
-  <h2><a href="/details/<%=details.id%>"><%=details.title%></a></h2>
-  <% if(details.images !== null && details.images.hasOwnProperty('image')) { %>
-    <% if(Array.isArray(details.images.image)) { %>
-      <img src="<%=details.images.image[0].small.url%>"/>
-    <%  } else{ %>
-      <img src="<%=details.images.image.small.url%>"/>
-    <%  } %>
- <% }; %>
-  <h3><%=details.price%></h3>
-  <h3><%=details.start_time%> - <%=details.stop_time%> <a href="<%=details.venue_url%>"><%=details.venue_name%></a></h3>
-  <h3><%=details.address%> <%=details.city%>, <%=details.region_abbr%> <%=details.postal_code%></h3>
-  <p><%=details.description%></p>
+    <div class="details-row-first">
+      <h2><a href="/details/<%=details.id%>"><%=details.title%></a></h2>
+      <% if(details.images !== null && details.images.hasOwnProperty('image')) { %>
+        <% if(Array.isArray(details.images.image)) { %>
+          <img src="<%=details.images.image[0].small.url%>"/>
+        <%  } else{ %>
+          <img src="<%=details.images.image.small.url%>"/>
+        <%  } %>
+      <% }; %>
+    </div>
+    <div class="details-container">
+  <div class="details">
+
+    <div class="details-row-2-columns">
+      <div class="column-top">
+        <h3><%=details.price%></h3>
+        <h3><%=details.venue_name%> - <%=details.start_time%></h3>
+        <h3><%=details.address%> <%=details.city%>, <%=details.region_abbr%> <%=details.postal_code%></h3>
+        <p><%=details.description%></p>
+
+        <form action="/details/save" method="POST" id="save">
+          <input type="hidden" name="title" value="<%=details.title%>">
+          <input type="hidden" name="venue" value="<%=details.venue_name%>">
+          <input type="hidden" name="city" value="<%=details.city%>">
+          <input type="hidden" name="state" value="<%=details.region_abbr%>">
+          <input type="hidden" name="zip" value="<%=details.postal_code%>">
+
+          <input type="hidden" name="lat" value="<%=details.latitude%>">
+          <input type="hidden" name="long" value="<%=details.longitude%>">
+            <% if (details.links !== null) { %>
+              <% if(Array.isArray(details.links.link)) { %>
+                <input type="hidden" name="url" value="<%=details.links.link[0].url%>">
+              <%} else { %>
+                <input type="hidden" name="url" value="<%=details.links.link.url%>">
+              <% } %>
+            <% } %>
+          <button type="submit">Buy</button>
+        </form>
+      </div>
+
+      <div class="column">
+        <div id="map"></div>
+      </div>
+    </div>
+
+    <div class="restaurants-div">
+      <div class="details-row">
+        <h2>Restaurants Nearby</h2>
+      </div>
+
+      <div class="restaurants">
+        <% restaurants.results.forEach(function(restaurant) { %>
+          <div class="restaurant-instance">
+            <div class="restaurants-row">
+              <h4><%=restaurant.name%></h4>
+              <% if(restaurant.rating){ %>
+                <p>Google Rating: <%=restaurant.rating%></p>
+              <% } %>
+            </div>
+              <p>Categories:<%restaurant.types.forEach(function(type) { %>
+                <span><%=type%>, </span>
+                <% }); %>
+                </p>
+          </div>
+        <% }); %>
+      </div>
+    </div>
 
 
-  <form action="/details/save" method="POST" id="save">
-    <input type="hidden" name="title" value="<%=details.title%>">
-    <input type="hidden" name="venue" value="<%=details.venue_name%>">
-    <input type="hidden" name="city" value="<%=details.city%>">
-    <input type="hidden" name="state" value="<%=details.region_abbr%>">
-    <input type="hidden" name="zip" value="<%=details.postal_code%>">
-
-    <input type="hidden" name="lat" value="<%=details.latitude%>">
-    <input type="hidden" name="long" value="<%=details.longitude%>">
-      <% if (details.links !== null) { %>
-        <% if(Array.isArray(details.links.link)) { %>
-          <input type="hidden" name="url" value="<%=details.links.link[0].url%>">
-        <%} else { %>
-          <input type="hidden" name="url" value="<%=details.links.link.url%>">
-        <% } %>
-      <% } %>
-    <button type="submit">Buy</button>
-  </form>
-
-<div id="map"></div>
-
-<h2>Restaurants Nearby</h2>
-<% restaurants.results.forEach(function(restaurant) { %>
-  <h4><%=restaurant.name%></h4>
-  <p>Google Rating: <%=restaurant.rating%></p>
-  <p>Categories:<%restaurant.types.forEach(function(type) { %>
-    <span><%=type%>, </span>
-    <% }); %>
-    </p>
-<% }); %>
+  </div>
+</div>
 
     <script>
     function initMap() {

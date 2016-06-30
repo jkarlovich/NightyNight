@@ -45,9 +45,13 @@ li{
 }
 
 a {
-  color:black;
-  font-size: 1em;
+  font-size: 1.2em;
   color:grey;
+}
+
+a:hover {
+  color: honeydew;
+  text-decoration:none;
 }
 
 .nav-button {
@@ -78,6 +82,21 @@ h1{
   color:honeydew;
 }
 
+span{
+  color: grey;
+}
+
+span a{
+  color: silver;
+}
+
+.alert{
+  margin:0;
+}
+
+.close{
+  color:honeydew;
+}
 /*Modals*/
 
 .auth-form{
@@ -86,7 +105,6 @@ h1{
 
 .auth-form h1{
   color:black;
-  /*height: 200px;*/
 }
 
 .modal{
@@ -121,7 +139,7 @@ h1{
 }
 
 .form-button{
-  margin: 10px 0 0 10px;
+  margin: 10px 0 0 30px;
 }
 .form-row{
   width: 300px;
@@ -147,9 +165,18 @@ h1{
 .form {
   text-align:center;
 }
+.search-row{
+  display:flex;
+  justify-content:space-around;
+}
 
 input{
   border-radius: 4px;
+  margin: 0 10px;
+}
+
+label{
+  margin: 0 10px;
 }
 
 .form button{
@@ -172,6 +199,7 @@ input{
   text-align: center;
   color:honeydew;
   margin: 0 auto;
+  padding: 0;
 }
 
 .home{
@@ -189,6 +217,12 @@ input{
 .home h2 {
   text-align:center;
   color:honeydew;
+  padding: 0;
+}
+
+.home h3 {
+  padding:0;
+  margin: 0;
 }
 
 /*------------------------------------Profile Page----------------------------*/
@@ -235,13 +269,170 @@ h2.header-left{
   border-radius: 8px;
 
 }
- /*Details Page*/
+
+/*-------------------------------Results-------------------------------------*/
+.results-container{
+  background-color:rgba(20, 9, 26, 0.70);
+  width: 100%;
+  display:flex;
+  justify-content:center;
+}
+
+.results{
+  padding: 20 0p;
+  display:flex;
+  flex-direction: column;
+  width: 70%;
+}
+.results-instance{
+  background-color: rgba(225, 175, 252, 0.38);
+  margin: 20px;
+  border-radius: 4px;
+  padding: 0 20px 20px;
+}
+.results-row{
+  margin: 0px 0 0 0;
+  display:flex;
+  align-items:center;
+}
+
+.results h1{
+  color:black;
+  margin:40px 0 20px 20px;
+  padding:0;
+  font-weight: 200;
+}
+
+.results-h2{
+  font-weight:200;
+  padding:0;
+  margin:0;
+}
+
+.results h3{
+  font-weight:100;
+  font-size: 24px;
+  margin: 4px 0;
+  width:80%;
+}
+
+.results a{
+  color: silver;
+}
+
+.results a:hover{
+  color:honeydew;
+}
+
+span.indent{
+  display:inline-block;
+  width: 40px;
+}
+
+.results p{
+  font-size: 20px;
+  font-weight: 100;
+  margin: 8px 0 0 8px;
+}
+
+img.results-img{
+  display:inline;
+ width:48px;
+ margin: 0 0 0 40px;
+ padding:0;
+}
+
+/*-------------------------------Details--------------------------------------*/
+.details-container{
+  width: 100%;
+  display:flex;
+  justify-content:center;
+}
+
+.details{
+  width: 90%;
+}
+
 #map {
   height: 400px;
   width: 400px;
-  background-color:blue;
 }
 
-/*-------------------------------Restults-------------------------------------*/
-/*-------------------------------Details--------------------------------------*/
+.column{
+  width: 50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height: 400px;
+}
+
+.column-top{
+  display:flex;
+  flex-direction:column;
+  width:50%;
+  padding: 20px;
+  /*padding: 20px;*/
+  /*justify-content:flex-start;*/
+  /*align-items: flex-start;*/
+}
+
+.column-top h3{
+  margin:0 0 10px 40px;
+}
+
+.column-top button{
+  margin: 0 0 0 40px;
+  border-radius: 4px;
+}
+
+
+.details-row-2-columns{
+  display:flex;
+}
+
+.details-row{
+  display:flex;
+  align-items:center;
+}
+
+.details-row-first{
+  display:flex;
+  align-items:center;
+  margin: 0 0 40px 0px;
+  padding: 40px;
+  background-color: rgba(163, 244, 244, 0.48);
+}
+
+
+
+.details-row img{
+  height: 48px;
+  width: auto;
+}
+.restaurants-div{
+  border-radius: 8px;
+  margin: 40px 0;
+  padding: 0 40px;
+  background-color: rgba(163, 244, 244, 0.48);
+}
+
+.restaurant-instance{
+  display:block;
+  margin: 0 0 12px 0;
+  padding: 20px;
+  border-radius: 8px;
+  height: 140px;
+  -webkit-column-break-inside:avoid;
+  -moz-column-break-inside:avoid;
+  -o-column-break-inside:avoid;
+  -ms-column-break-inside:avoid;
+  column-break-inside:avoid;
+  background-color: rgba(15, 137, 137, 0.48);
+}
+.restaurants{
+  -webkit-column-count: 2; /* Chrome, Safari, Opera */
+  -moz-column-count: 2; /* Firefox */
+  column-count: 2;
+}
+
 /*-------------------------------LogIn/SignUp---------------------------------*/
