@@ -11,4 +11,15 @@ $(document).ready(function() {
       window.location='/profile';
     });
   });
-});
+
+//For keep focus on current tab
+
+//   $('#save').click(function(e){
+//     var url = $('#url').val();
+//     open(url);
+//     window.focus()='/profile';
+//   });
+ });
+
+//directly inline, works for some
+//onclick="function(){open("<%=details.links.link.url%>");focus()};"

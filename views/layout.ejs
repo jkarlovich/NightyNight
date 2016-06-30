@@ -28,13 +28,21 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
               </div>
               <div class="modal-body">
-                <form method="POST" action="/auth/login" >
+                <form method="POST" class="auth-form" action="/auth/login" >
                   <h1>Login to Your Account</h1>
-                  <label for="email">email:</label>
-                  <input type="email" name="email" placeholder="me@google.com">
-                  <label for="password">Password:</label>
-                  <input type="password" name="password">
-                  <input type="submit">
+                  <div class="form-row-wrap">
+                    <div class="form-row">
+                      <label for="email">email:</label>
+                      <input type="email" name="email" placeholder="me@google.com">
+                    </div>
+                  </div>
+                  <div class="form-row-wrap">
+                    <div class="form-row">
+                      <label for="password">Password:</label>
+                      <input type="password" name="password">
+                    </div>
+                  </div>
+                  <input class="form-button" type="submit">
                 </form>
               </div>
               <div class="modal-footer">
@@ -50,16 +58,30 @@
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                  <form method="POST" action="auth/signup">
+                  <form method="POST" class="auth-form" action="auth/signup">
                     <h1>Signup for an Account</h1>
+                    <div class="form-row-wrap">
+                      <div class="form-row">
                     <label for="name">Name:</label>
                     <input type="text" name="name" placeholder="Marilyn Monroe">
+                      </div>
+                    </div>
+                    <div class="form-row-wrap">
+                    <div class="form-row">
                     <label for="email">email:</label>
                     <input type="email" name="email" placeholder="me@google.com">
+                    </div>
+                    </div>
+                    <div class="form-row-wrap">
+                    <div class="form-row">
                     <label for="password">Password:</label>
                     <input type="password" name="password">
-                    <input type="submit">
+                    </div>
+                    </div>
+                    <input class="form-button" type="submit">
                   </form>
+                </div>
+                <div class="modal-footer">
                 </div>
               </div>
             </div>

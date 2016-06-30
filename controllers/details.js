@@ -16,7 +16,7 @@ router.get('/:id', function(req, res){
     if(!error && response.statusCode === 200) {
       var details = JSON.parse(body);
       if (details.description !== null){
-        // details.description = details.description.replace(/<p>|<\/p>|<em>|<\/em>|<a href=.*?>|<\/a>|<br>|<\/br>|<ul>|<\/ul>|<li>|<\/li>|<strong>|<\/strong>/g, "");
+        details.description = details.description.replace(/<p>|<\/p>|<em>|<\/em>|<a href=.*?>|<\/a>|<br>|<\/br>|<ul>|<\/ul>|<li>|<\/li>|<strong>|<\/strong>|<b>|<\/b>|<i>|<\/i>/g, "");
       };
       request({
         url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',

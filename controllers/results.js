@@ -19,7 +19,7 @@ router.get('/', function(req, res) {
       data.events.event.forEach(function(event){
 
         if(event.description !== null) {
-          event.description = event.description.replace(/<p>|<\/p>|<em>|<\/em>|<a href=.*?>|<\/a>|<br>|<\/br>|<ul>|<\/ul>|<li>|<\/li>|<strong>|<\/strong>/g, "");
+          event.description = event.description.replace(/<p>|<\/p>|<em>|<\/em>|<a href=.*?>|<\/a>|<br>|<\/br>|<ul>|<\/ul>|<li>|<\/li>|<strong>|<\/strong>|<b>|<\/b>|<i>|<\/i>/g, "");
         }
       });
       res.render('results', {events: data, search: req.query.search});

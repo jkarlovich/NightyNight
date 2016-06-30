@@ -9,7 +9,7 @@
   <h3><%=details.price%></h3>
   <h3><%=details.start_time%> - <%=details.stop_time%> <a href="<%=details.venue_url%>"><%=details.venue_name%></a></h3>
   <h3><%=details.address%> <%=details.city%>, <%=details.region_abbr%> <%=details.postal_code%></h3>
-  <h3><%=details.description%></h3>
+  <p><%=details.description%></p>
 
 
   <form action="/details/save" method="POST" id="save">
@@ -74,3 +74,5 @@ var restaurants = <%-JSON.stringify(restaurants)%>;
     </script>
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUGysiULRm4y1wOrG5wRk7CFaNl0GLWr4&callback=initMap"></script>
+
+
