@@ -14,8 +14,18 @@ $(document).ready(function() {
 
   $('#save').click(function(e) {
     var url = $('#url').val();
-    open(url);
-    window.focus();
+    $.ajax({
+      method: 'GET',
+      url: '/loggedin'
+    }).done (function(msg) {
+      console.log(msg);
+      if(msg.msg === 'true') {
+        open(url);
+        window.focus();
+      } else {
+        $('#myModal').modal('show');
+      }
+    });
   });
 
   $('#myModal').on('shown.bs.modal', function(e) {

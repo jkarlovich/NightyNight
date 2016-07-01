@@ -6,10 +6,10 @@ var passport = require('./config/ppConfig');
 var flash = require('connect-flash');
 var isLoggedIn = require('./middleware/middlewear');
 var request = require('request');
-var moment = require('moment');
 var db = require('./models');
 var geocoder = require('geocoder');
 var pg = require('pg');
+var moment = require('moment');
 var app = express();
 
 app.set('view engine', 'ejs');
@@ -32,6 +32,11 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use(function(req, res, next) {
+ res.locals.moment = moment;
+   next();
+  });
+
 app.get('/db', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('SELECT * FROM test_table', function(err, result) {
@@ -44,15 +49,17 @@ app.get('/db', function (request, response) {
   });
 });
 
-app.use(function(req, res, next) {
-  res.locals.moment = moment;
-  next();
+app.get('/', function(req, res) {
+  res.render('error');
 });
 
 
-app.get('/', function(req, res) {
-  res.render('index');
-  console.log(req.session.lastPage);
+app.get('/loggedin', function(req, res) {
+  if(!req.user) {
+    res.send({msg: 'false'});
+  } else {
+    res.send({msg: 'true'});
+  };
 });
 
 app.get('/profile', isLoggedIn, function(req, res) {
@@ -62,7 +69,6 @@ app.get('/profile', isLoggedIn, function(req, res) {
     },
     include: [db.show]
   }). then(function(info) {
-    //res.send({info:info});
     res.render('profile', {info:info});
   });
 });

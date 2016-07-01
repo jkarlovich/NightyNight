@@ -36,14 +36,6 @@ router.get('/:id', function(req, res){
 });
 
 router.post('/save', isLoggedIn, function(req, res) {
-  console.log("title:", req.body.title);
-  console.log("venue:", req.body.venue);
-  console.log("city:", req.body.city);
-  console.log("state:", req.body.state);
-  console.log("zip :", req.body.zip);
-  console.log("lat:", req.body.lat);
-  console.log("long:", req.body.long);
-  console.log("url:", req.body.url);
     db.show.findOrCreate({
       where: {
         title: req.body.title,

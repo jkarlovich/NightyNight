@@ -104,7 +104,7 @@ span a{
 }
 
 .auth-form h1{
-  color:black;
+  color:honeydew;
 }
 
 .modal{
@@ -152,7 +152,6 @@ span a{
 
 .modal-content{
   background-color:grey;
-  /*height: 200px;*/
 }
 
 .modal-footer{
@@ -227,11 +226,30 @@ label{
 
 /*------------------------------------Profile Page----------------------------*/
 
+.profile-container{
+  display:flex;
+  flex-direction:column;
+  padding: 40px;
+  align-items:center;
+}
+
 .profile {
   background-color:#d8bfd8;
   margin: 10px;
   padding: 10px 0 0 0;
   border-radius: 8px;
+  width: 88%;
+}
+
+.profile-container h2 {
+  display:block;
+  width:88%;
+}
+
+.profile-container h3 {
+  display:block;
+  width:88%;
+}
 }
 
 .profile h2{
@@ -255,14 +273,14 @@ label{
   margin: 0 0 10px 0;
 }
 
-.header-left{
+/*.header-left{
   text-align:left;
   margin: 10px 0 10px 20px;
-}
+}*/
 
-h2.header-left{
+/*h2.header-left{
   margin: 20px 0 20px 20px;
-}
+}*/
 
 .delete{
   width: 60px;
@@ -436,3 +454,9 @@ img.results-img{
 }
 
 /*-------------------------------LogIn/SignUp---------------------------------*/
+
+/*----------------------------------------------------------------------------*/
+h1.error{
+  text-align:center;
+  padding:0;
+}
