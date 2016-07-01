@@ -5,7 +5,7 @@ Use this app to search for events by keyword and find restaurants nearby.  Link 
 [Use the App Here](https://nightynight.herokuapp.com/)
 
 ##Approach
-The first thing I tried to do was set up my routes involving my API calls.  The Eventful API was very frustrating because some of the keys in the opject returned would be an array in some restults and a key/value pair in another and sometimes null, so a lot of if...else statements needed to be put into place to display the restults correctly.  From there, I set up my Google Places API call.  From there, I set up my profile results and my delete buttons.  Then I added the map.  Lots of styling happened at the end but some was done along the way as well.
+The first thing I tried to do was set up my routes involving my API calls.  The Eventful API was very frustrating because some of the keys in the opject returned would be an array in some restults and a key/value pair in another and sometimes null, so a lot of if...else statements needed to be put into place to display the restults correctly.  From there, I set up my Google Places API call.  From there, I set up my profile results and my delete buttons.  Then I added the map.  Lots of styling happened at the end but some was done along the way as well.  Tried to work on responsive design as well.
 
 ##Credits:
   * [jQuery](https://jquery.com/)

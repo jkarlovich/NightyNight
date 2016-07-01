@@ -76,7 +76,7 @@ a:hover {
   text-align:center;
 }
 
-h1{
+nav h1{
   margin:0;
   padding: 0 0 0 80px;
   color:honeydew;
@@ -93,6 +93,10 @@ span a{
 
 .alert{
   margin:0;
+}
+
+.dropdown-menu{
+  min-width: 100px;
 }
 
 .close{
@@ -224,13 +228,22 @@ label{
   text-align:center;
   color:honeydew;
   padding: 0;
+  font-size: 3.48em;
+  font-weight: 100;
 }
 
 .home h3 {
   padding:0;
   margin: 0;
+  font-weight: 200;
 }
 
+/*.search-row button{
+  border-radius: 4px;
+  background-color: purple;
+  color:grey;
+  border-color: purple;
+}*/
 
 /*------------------------------------Profile Page----------------------------*/
 
@@ -253,17 +266,21 @@ label{
 
 .profile-container h2 {
   display:block;
+  font-weight: 100;
 }
 
 .profile-container h3 {
   display:block;
   width:88%;
+  padding:0 0 0 20px;
+  font-weight: 100;
 }
 
 .profile-container h1{
   color:black;
   width: 88%;
-  padding:0;
+  padding:0 0 0 20px;
+  font-weight: 200;
 }
 
 .profile h2{
@@ -335,7 +352,7 @@ label{
 
 .results h1{
   color:black;
-  margin:40px 0 20px 20px;
+  margin:40px 0 20px 40px;
   padding:0;
   font-weight: 200;
 }
@@ -344,6 +361,7 @@ label{
   font-weight:200;
   padding:0;
   margin:0;
+  font-weight: 100;
 }
 
 .results h3{
