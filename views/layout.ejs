@@ -7,14 +7,16 @@
 
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
   </head>
   <body>
   <% JSON.stringify(currentUser) %>
   <% include partials/alerts %>
-    <nav>
+        <nav>
       <h1>OnTheTown</h1>
       <div class="center-nav">
+      <div class="nav-hide">
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/profile">Profile</a></li>
@@ -87,14 +89,29 @@
           </div>
         </div>
       </div>
+      <div class="hamb">
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+    <li><a href="/">Home</a></li>
+    <li><a href="/profile">Profile</a></li>
+    <li><a href="/auth/logout">Logout</a></li>
+    <li><a href="/auth/login">LogIn</a></li>
+    <li><a href="/auth/signup">Signup</a></li>
+  </ul>
+</div>
+</div>
+
     </nav>
-    <div class="container">
+    <div class="full-container">
       <%- body %>
     </div>
     <div class="footer">
       <span class="footer-boxes"><a href="mailto:jamierkarlovich@gmail.com">Contact Us</a></span>
       <span class="footer-boxes">&#169; OnTheTown</span>
-      <span class="footer-boxes">Website Created By: <a href="http://www.jamiekarlovich.com/">Jamie Karlovich</a></span>
+      <span class="footer-boxes"><span class="small-hide">Website Created By: </span><a href="http://www.jamiekarlovich.com/">Jamie Karlovich</a></span>
     </div>
 
     <script src="//code.jquery.com/jquery.js"></script>
@@ -105,3 +122,5 @@
 
   </body>
 </html>
+
+

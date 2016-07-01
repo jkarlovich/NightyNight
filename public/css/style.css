@@ -15,7 +15,7 @@ body{
   flex-direction: column;
 }
 
-.container{
+.full-container{
   min-height: 570px;
   width:100%;
   padding: 0;
@@ -80,6 +80,7 @@ h1{
   margin:0;
   padding: 0 0 0 80px;
   color:honeydew;
+  font-family: 'Aref Ruqaa', serif;
 }
 
 span{
@@ -154,12 +155,18 @@ span a{
   background-color:grey;
 }
 
+.hamb{
+  display:none;
+}
+
 .modal-footer{
   background-color:rgba(20, 0, 26, 0.70);
   width:100%;
   margin: 10px 0;
   padding:0px;
 }
+
+
 /*--------------------------------------Home----------------------------------*/
 .form {
   text-align:center;
@@ -224,6 +231,7 @@ label{
   margin: 0;
 }
 
+
 /*------------------------------------Profile Page----------------------------*/
 
 .profile-container{
@@ -236,9 +244,11 @@ label{
 .profile {
   background-color:#d8bfd8;
   margin: 10px;
-  padding: 10px 0 0 0;
+  padding: 10px;
   border-radius: 8px;
   width: 88%;
+  display:flex;
+
 }
 
 .profile-container h2 {
@@ -273,14 +283,6 @@ label{
   margin: 0 0 10px 0;
 }
 
-/*.header-left{
-  text-align:left;
-  margin: 10px 0 10px 20px;
-}*/
-
-/*h2.header-left{
-  margin: 20px 0 20px 20px;
-}*/
 
 .delete{
   width: 60px;
@@ -356,7 +358,7 @@ span.indent{
 img.results-img{
   display:inline;
  width:48px;
- margin: 0 0 0 40px;
+ margin: 10px 0 10px 40px;
  padding:0;
 }
 
@@ -493,4 +495,130 @@ img.results-img{
 h1.error{
   text-align:center;
   padding:0;
+}
+
+
+@media(max-width: 360px) {
+  h1{
+    font-size: 1.8em;
+  }
+}
+
+@media(max-width: 420px) {
+  img.results-img{
+    display:none;
+  }
+}
+
+@media(max-width: 454px) {
+  img.results-img{
+    margin: 0 0 0 10px;
+  }
+}
+
+@media(max-width: 548px) {
+
+  .restaurants{
+  -webkit-column-count: 1;
+  -moz-column-count: 1;
+  column-count: 1;
+  }
+
+}
+
+@media(max-width: 648px) {
+
+  .hamb{
+    display:block;
+  }
+
+  .nav-hide{
+    display:none;
+  }
+
+}
+
+@media(max-width: 722px) {
+  h1{
+    padding: 0 0 0 0px;
+  }
+}
+
+@media(max-width: 776px) {
+  .home h3{
+    font-size: 1em;
+    padding: 10px 0 10px 0;
+  }
+
+  .home-content{
+    height:48%;
+    margin: 0 8% 0 0;
+  }
+
+  .details-row-2-columns{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .map{
+    height: 300px;
+    width: 300px;
+  }
+
+  .column{
+    width: 84%;
+  }
+
+  .column-top{
+    width: 84%;
+  }
+}
+
+@media(max-width: 796px) {
+  .small-hide{
+    display:none;
+  }
+}
+
+@media(max-width: 804px) {
+  .home-content{
+    margin: 0 0 0 0;
+    align-self:center;
+    width: 284px;
+  }
+}
+
+@media(max-width: 900px) {
+  h3{
+    font-size: 1.2em;
+  }
+
+  .home-content {
+    height: 60%;
+  }
+
+  .home {
+    height: 570px;
+  }
+}
+
+@media(max-width:948px) {
+  .restaurant-instance{
+    height: 200px;
+  }
+}
+
+@media(max-width: 1061px) {
+
+  input{
+    margin: 10px 0;
+    display:block;
+  }
+
+  .search-row{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+  }
 }

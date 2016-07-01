@@ -37,6 +37,7 @@ app.use(function(req, res, next) {
    next();
   });
 
+
 app.get('/db', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('SELECT * FROM test_table', function(err, result) {
@@ -50,7 +51,7 @@ app.get('/db', function (request, response) {
 });
 
 app.get('/', function(req, res) {
-  res.render('error');
+  res.render('index');
 });
 
 
