@@ -34,3 +34,4 @@ The first thing I tried to do was set up my routes involving my API calls.  The 
   * Pull up bigger images for the events and find a way to make the whitespace around them disappear.
   * Need to debug in other browsers and operating systems
   * Some of the tests are failing now.
+  * Rename the repo and heroku project to OnTheTown.
