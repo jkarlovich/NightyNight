@@ -1,6 +1,6 @@
-# NightyNight App
+# OnTheTown App
 
-##Use this app to search for events by keyword and find restaurants nearby.  Link to a page where you can purchase tickets and save your events to your profile.
+Use this app to search for events by keyword and find restaurants nearby.  Link to a page where you can purchase tickets and save your events to your profile.
 
 [Use the App Here](https://nightynight.herokuapp.com/)
 
