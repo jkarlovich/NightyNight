@@ -7,8 +7,8 @@ $(document).ready(function() {
       method: 'DELETE',
       url: url
     }).done(function(data) {
-      console.log(data);
-      window.location='/profile';
+      // console.log(data);
+      window.location = '/profile';
     });
   });
 
@@ -17,9 +17,9 @@ $(document).ready(function() {
     $.ajax({
       method: 'GET',
       url: '/loggedin'
-    }).done (function(msg) {
-      console.log(msg);
-      if(msg.msg === 'true') {
+    }).done(function(msg) {
+      // console.log(msg);
+      if (msg.msg === 'true') {
         open(url);
         window.focus();
       } else {
@@ -35,7 +35,5 @@ $(document).ready(function() {
   $('#secondModal').on('shown.bs.modal', function(e) {
     $('#signupFocus').focus();
   });
-
- });
-
+});
 

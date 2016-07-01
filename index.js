@@ -21,7 +21,7 @@ app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
-  cookie: {maxAge: 240000}
+  cookie: { maxAge: 240000 }
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -33,19 +33,21 @@ app.use(function(req, res, next) {
 });
 
 app.use(function(req, res, next) {
- res.locals.moment = moment;
-   next();
-  });
+  res.locals.moment = moment;
+  next();
+});
 
 
 app.get('/db', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('SELECT * FROM test_table', function(err, result) {
       done();
-      if (err)
-       { console.error(err); response.send("Error " + err); }
-      else
-       { response.render('pages/db', {results: result.rows} ); }
+      if (err) {
+        // console.error(err);
+        response.send('Error ' + err);
+      } else {
+        response.render('pages/db', { results: result.rows });
+      }
     });
   });
 });
@@ -56,11 +58,11 @@ app.get('/', function(req, res) {
 
 
 app.get('/loggedin', function(req, res) {
-  if(!req.user) {
-    res.send({msg: 'false'});
+  if (!req.user) {
+    res.send({ msg: 'false' });
   } else {
-    res.send({msg: 'true'});
-  };
+    res.send({ msg: 'true' });
+  }
 });
 
 app.get('/profile', isLoggedIn, function(req, res) {
@@ -69,8 +71,8 @@ app.get('/profile', isLoggedIn, function(req, res) {
       id: req.user.id
     },
     include: [db.show]
-  }). then(function(info) {
-    res.render('profile', {info:info});
+  }).then(function(info) {
+    res.render('profile', { info: info });
   });
 });
 
@@ -82,7 +84,7 @@ app.delete('/delete/:id', function(req, res) {
       userId: req.user.id
     }
   }).then(function(show) {
-    res.send({msg: 'deleted'});
+    res.send({ msg: 'deleted' });
   });
 });
 

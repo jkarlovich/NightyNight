@@ -1,18 +1,18 @@
 <div class="profile-container">
-<h2 class="header-left">Profile</h2>
-<h3 class="header-left">Record of Shows</h3>
-<% info.shows.forEach(function(show) { %>
-<div class="profile">
-<div class="button-box">
-  <h2><%=show.title%></h2>
-  <h3><%=show.venue%> - <%=show.city%>, <%=show.state%> <%=show.zip%></h3>
-  </div>
-  <div class="button-box">
-  <button class="profile-button"><a href="<%=show.url%>" target="_blank">Info</a></button>
-  <button class="delete" type="submit" href="/delete/<%=show.id%>">Delete</button>
-  </div>
-</div>
-<% }); %>
+  <h1 class="header-left">Profile</h1>
+  <h3 class="header-left">Record of Shows</h3>
+  <% info.shows.forEach(function(show) { %>
+    <div class="profile">
+      <div class="box">
+        <h2><%=show.title%></h2>
+        <h3><%=show.venue%> - <%=show.city%>, <%=show.state%> <%=show.zip%></h3>
+      </div>
+      <div class="button-box">
+        <button class="info"><a href="<%=show.url%>" target="_blank">Info</a></button>
+        <button class="delete" type="submit" href="/delete/<%=show.id%>">Delete</button>
+      </div>
+    </div>
+  <% }); %>
 </div>
 
 
