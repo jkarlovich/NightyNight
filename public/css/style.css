@@ -455,6 +455,40 @@ img.results-img{
 
 /*-------------------------------LogIn/SignUp---------------------------------*/
 
+.auth{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  min-height: 570px;
+  background-color:rgba(20, 9, 26, 0.70);
+}
+
+.auth h1{
+  width: 48%;
+  padding:8px 0;
+  text-align:center;
+  color:black;
+}
+
+.auth form{
+  width: 48%;
+  height: 200px;
+  color:honeydew;
+  padding:0
+  margin:0;
+}
+
+.auth form input{
+  background-color: silver;
+  margin:0;
+}
+
+.grey{
+  background-color:grey;
+  color:black;
+}
+
 /*----------------------------------------------------------------------------*/
 h1.error{
   text-align:center;
