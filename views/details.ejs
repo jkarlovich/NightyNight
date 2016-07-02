@@ -13,6 +13,7 @@
     <div class="details-row-2-columns">
       <div class="column-top">
         <h3><%=details.price%></h3>
+        <!-- moment is the date formatting thing -->
         <h4><%=details.venue_name%> - <%=moment(details.start_time, 'YYYY-MM-DD hh:mm:ss').format('M/DD/YY h:mm a');%></h4>
         <p><%=details.address%> <%=details.city%>, <%=details.region_abbr%> <%=details.postal_code%></p>
         <p><%=details.description%></p>
@@ -76,8 +77,10 @@
       zoom: 14
     });
 
+    //for beach flag marker image
     var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
 
+    //make venue marker
     var showPlace = new google.maps.Marker({
       position: new google.maps.LatLng(<%=details.latitude%>, <%=details.longitude%>),
         map:map,
@@ -85,11 +88,14 @@
         icon: image
     });
 
+    //add listener to show window when click on marker
     showPlace.addListener('click', function(){
       var infoWindow = new google.maps.InfoWindow({ content: '<h3>' + showPlace.title +  '</h3>' });
       infoWindow.open(map, showPlace);
     });
 
+    //restaurants wouldn't show up on map without the JSON.stringify -too big
+    //restaurants markers
     var restaurants = <%-JSON.stringify(restaurants)%>;
     restaurants.results.forEach(function(place, idx){
       var marker = new google.maps.Marker({
@@ -98,6 +104,7 @@
           title:place.name + " " + place.vicinity
       });
 
+      //event listener to show window when click on marker
       marker.addListener('click', function(){
         var infoWindow = new google.maps.InfoWindow({ content: '<p>' + marker.title +  '</p>' });
         infoWindow.open(map, marker);

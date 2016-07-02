@@ -32,12 +32,14 @@ app.use(function(req, res, next) {
   next();
 });
 
+//this takes the badly formatted dates I get back from the eventful API and
+//reformats them
 app.use(function(req, res, next) {
   res.locals.moment = moment;
   next();
 });
 
-
+//this is for the google maps api
 app.get('/db', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('SELECT * FROM test_table', function(err, result) {

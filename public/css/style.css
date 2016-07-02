@@ -1,14 +1,11 @@
 html{
   margin:0;
-  /*height: 100%;*/
   padding: 0;
   width:100%;
-  /*border: 1px solid black;*/
 }
 
 body{
   margin: 0;
-  /*height: 100%;*/
   padding: 0;
   width:100%;
   display:flex;
@@ -238,13 +235,6 @@ label{
   font-weight: 200;
 }
 
-/*.search-row button{
-  border-radius: 4px;
-  background-color: purple;
-  color:grey;
-  border-color: purple;
-}*/
-
 /*------------------------------------Profile Page----------------------------*/
 
 .profile-container{
@@ -426,9 +416,6 @@ img.results-img{
   flex-direction:column;
   width:50%;
   padding: 20px;
-  /*padding: 20px;*/
-  /*justify-content:flex-start;*/
-  /*align-items: flex-start;*/
 }
 
 .column-top h3{

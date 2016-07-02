@@ -13,8 +13,6 @@
    }, function(error, response, body) {
      if (!error && response.statusCode === 200) {
        var data = JSON.parse(body);
-      // res.send({events:events});
-      // res.send({events: events.events.event[0].image.small.url});
        data.events.event.forEach(function(event) {
          if (event.description !== null) {
            event.description = event.description.replace(/<p>|<\/p>|<em>|<\/em>|<a href=.*?>|<\/a>|<br>|<\/br>|<ul>|<\/ul>|<li>|<\/li>|<strong>|<\/strong>|<b>|<\/b>|<i>|<\/i>/g, '');
@@ -24,6 +22,5 @@
      }
    });
  });
-
 
  module.exports = router;

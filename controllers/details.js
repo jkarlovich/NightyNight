@@ -5,6 +5,7 @@
  var open = require('open');
  var isLoggedIn = require('../middleware/middlewear');
 
+//get the info from the eventful API
  router.get('/:id', function(req, res) {
    request({
      url: 'http://api.eventful.com/json/events/get',
@@ -16,8 +17,10 @@
      if (!error && response.statusCode === 200) {
        var details = JSON.parse(body);
        if (details.description !== null) {
+        //the next line is to take the badly formated copy from eventful and
+        //take the tags from it
          details.description = details.description.replace(/<p>|<\/p>|<em>|<\/em>|<a href=.*?>|<\/a>|<br>|<\/br>|<ul>|<\/ul>|<li>|<\/li>|<strong>|<\/strong>|<b>|<\/b>|<i>|<\/i>/g, '');
-       }
+       } //request restaurants nearby the location of the venue
        request({
          url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
          qs: {
@@ -42,8 +45,8 @@
        venue: req.body.venue,
        city: req.body.city
      },
-     default: {
-       state: req.body.state,
+     default: { //I had all of these in the first part of this sequelize call
+       state: req.body.state, //but a buch are null so it would error
        zip: req.body.zip,
        lat: req.body.lat,
        long: req.body.long,
@@ -55,8 +58,6 @@
        },
        include: [db.show]
      }).then(function(user) {
-        // console.log("user:", user, "show:", show);
-        // console.log("show.url:", show.url);
        user.addShow(show);
        res.redirect('/profile');
      });
