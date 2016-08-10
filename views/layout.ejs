@@ -17,7 +17,7 @@
       <h1>OnTheTown</h1>
       <div class="center-nav">
         <div class="nav-hide">
-        <% if (!currentUser) {%>
+
           <ul>
             <li><a href="/">Home</a></li>
           </ul>
@@ -88,14 +88,14 @@
           </div>
         </div>
       </div>
-      <% } %>
-      <% if (currentUser) { %>
+
+
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/profile">Profile</a></li>
           <li><a href="/auth/logout">Logout</a></li>
         </ul>
-      <% } %>
+
       <div class="hamb">
         <div class="dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -103,7 +103,6 @@
           </button>
           <ul class="dropdown-menu pull-right thinner" aria-labelledby="dropdownMenu1">
           <% if (currentUser) { %>
-
               <li><a href="/">Home</a></li>
               <li><a href="/profile">Profile</a></li>
               <li><a href="/auth/logout">Logout</a></li>
