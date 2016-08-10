@@ -17,10 +17,9 @@
       <h1>OnTheTown</h1>
       <div class="center-nav">
         <div class="nav-hide">
+        <% if (!currentUser) {%>
           <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/profile">Profile</a></li>
-            <li><a href="/auth/logout">Logout</a></li>
           </ul>
           <button type="button" class="nav-button" data-toggle="modal" data-target="#myModal" id="login">LogIn</button>
         <div class="modal fade" id="myModal" role="dialog">
@@ -60,7 +59,7 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
               </div>
               <div class="modal-body">
-                <form method="POST" class="auth-form" action="auth/signup">
+                <form method="POST" class="auth-form" action="/auth/signup">
                   <h1>Signup for an Account</h1>
                   <div class="form-row-wrap">
                     <div class="form-row">
@@ -103,6 +102,14 @@
           </ul>
         </div>
       </div>
+      <% } %>
+      <% if (currentUser) { %>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/profile">Profile</a></li>
+          <li><a href="/auth/logout">Logout</a></li>
+        </ul>
+      <% } %>
     </nav>
 
     <div class="full-container">

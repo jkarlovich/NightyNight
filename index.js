@@ -20,8 +20,8 @@ app.use(ejsLayouts);
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: true,
-  cookie: { maxAge: 240000 }
+  saveUninitialized: true
+
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -58,7 +58,8 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 
-
+//This was me trying to figure out how to trigger the modal for signup/login
+//instead of being redirected to a new page, this code isn't being used yet
 app.get('/loggedin', function(req, res) {
   if (!req.user) {
     res.send({ msg: 'false' });
