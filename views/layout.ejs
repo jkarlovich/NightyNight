@@ -88,18 +88,6 @@
           </div>
         </div>
       </div>
-      <div class="hamb">
-        <div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu pull-right thinner" aria-labelledby="dropdownMenu1">
-            <li><a href="/">Home</a></li>
-            <li><a href="/auth/login">LogIn</a></li>
-            <li><a href="/auth/signup">Signup</a></li>
-          </ul>
-        </div>
-      </div>
       <% } %>
       <% if (currentUser) { %>
         <ul>
@@ -107,19 +95,26 @@
           <li><a href="/profile">Profile</a></li>
           <li><a href="/auth/logout">Logout</a></li>
         </ul>
-        <div class="hamb">
+      <% } %>
+      <div class="hamb">
         <div class="dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu pull-right thinner" aria-labelledby="dropdownMenu1">
+          <% if (currentUser) { %>
             <li><a href="/">Home</a></li>
             <li><a href="/profile">Profile</a></li>
             <li><a href="/auth/logout">Logout</a></li>
+          <% } %>
+          <% if (!currentUser) { %>
+            <li><a href="/">Home</a></li>
+            <li><a href="/auth/login">LogIn</a></li>
+            <li><a href="/auth/signup">Signup</a></li>
+          <% } %>
           </ul>
         </div>
       </div>
-      <% } %>
     </nav>
 
     <div class="full-container">
