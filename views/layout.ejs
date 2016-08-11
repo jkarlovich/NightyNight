@@ -16,109 +16,118 @@
     <nav>
       <h1>OnTheTown</h1>
       <div class="center-nav">
-        <div class="nav-hide">
 
-          <ul>
-            <li><a href="/">Home</a></li>
-          </ul>
-          <button type="button" class="nav-button" data-toggle="modal" data-target="#myModal" id="login">LogIn</button>
-        <div class="modal fade" id="myModal" role="dialog">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-              </div>
-              <div class="modal-body">
-                <form method="POST" class="auth-form" action="/auth/login" >
-                  <h1>Login to Your Account</h1>
-                  <div class="form-row-wrap">
-                    <div class="form-row">
-                      <label for="email">email:</label>
-                      <input type="email" id="loginFocus" name="email" placeholder="me@google.com">
-                    </div>
-                  </div>
-                  <div class="form-row-wrap">
-                    <div class="form-row">
-                      <label for="password">Password:</label>
-                      <input type="password" name="password">
-                    </div>
-                  </div>
-                  <input class="form-button" type="submit">
-                </form>
-              </div>
-              <div class="modal-footer">
-              </div>
-            </div>
-          </div>
-        </div>
-        <button type="button" class="nav-button" data-toggle="modal" data-target="#secondModal" id="signup">SignUp</button>
-        <div class="modal fade" id="secondModal" role="dialog">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-              </div>
-              <div class="modal-body">
-                <form method="POST" class="auth-form" action="/auth/signup">
-                  <h1>Signup for an Account</h1>
-                  <div class="form-row-wrap">
-                    <div class="form-row">
-                      <label for="name" >Name:</label>
-                      <input type="text"  id="signupFocus" name="name" placeholder="Marilyn Monroe">
-                    </div>
-                  </div>
-                  <div class="form-row-wrap">
-                    <div class="form-row">
-                      <label for="email">email:</label>
-                      <input type="email" name="email" placeholder="me@google.com">
-                    </div>
-                  </div>
-                  <div class="form-row-wrap">
-                    <div class="form-row">
-                      <label for="password">Password:</label>
-                      <input type="password" name="password">
-                    </div>
-                  </div>
-                  <input class="form-button" type="submit">
-                </form>
-              </div>
-              <div class="modal-footer">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/profile">Profile</a></li>
-          <li><a href="/auth/logout">Logout</a></li>
-        </ul>
-
-      <div class="hamb">
-        <div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu pull-right thinner" aria-labelledby="dropdownMenu1">
-          <% if (currentUser) { %>
+          <% if (!currentUser) {%>
+          <div class="nav-hide">
+            <ul>
               <li><a href="/">Home</a></li>
-              <li><a href="/profile">Profile</a></li>
-              <li><a href="/auth/logout">Logout</a></li>
-          <% } %>
-          <% if (!currentUser) { %>
+            </ul>
+            <button type="button" class="nav-button" data-toggle="modal" data-target="#myModal" id="login">LogIn</button>
+            <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                    <form method="POST" class="auth-form" action="/auth/login" >
+                      <h1>Login to Your Account</h1>
+                      <div class="form-row-wrap">
+                        <div class="form-row">
+                          <label for="email">email:</label>
+                          <input type="email" id="loginFocus" name="email" placeholder="me@google.com">
+                        </div>
+                      </div>
+                      <div class="form-row-wrap">
+                        <div class="form-row">
+                          <label for="password">Password:</label>
+                          <input type="password" name="password">
+                        </div>
+                      </div>
+                      <input class="form-button" type="submit">
+                    </form>
+                  </div> <!-- modal body-->
+                  <div class="modal-footer">
+                  </div>
+                </div> <!-- end modal content -->
+              </div> <!-- end modal dialog -->
+            </div> <!-- end modal -->
+            <button type="button" class="nav-button" data-toggle="modal" data-target="#secondModal" id="signup">SignUp</button>
+            <div class="modal fade" id="secondModal" role="dialog">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                <div class="modal-body">
+                  <form method="POST" class="auth-form" action="/auth/signup">
+                    <h1>Signup for an Account</h1>
+                    <div class="form-row-wrap">
+                      <div class="form-row">
+                        <label for="name" >Name:</label>
+                        <input type="text"  id="signupFocus" name="name" placeholder="Marilyn Monroe">
+                      </div>
+                    </div>
+                    <div class="form-row-wrap">
+                      <div class="form-row">
+                        <label for="email">email:</label>
+                        <input type="email" name="email" placeholder="me@google.com">
+                      </div>
+                    </div>
+                    <div class="form-row-wrap">
+                      <div class="form-row">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password">
+                      </div>
+                    </div>
+                    <input class="form-button" type="submit">
+                  </form>
+                </div> <!-- end modal-body -->
+                <div class="modal-footer">
+                </div>
+              </div> <!-- modal content -->
+            </div> <!-- modal dialog -->
+          </div> <!-- modal -->
+        </div> <!-- div nav hide -->
+        <div class="hamb">
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu pull-right thinner" aria-labelledby="dropdownMenu1">
               <li><a href="/">Home</a></li>
               <li><a href="/auth/login">LogIn</a></li>
               <li><a href="/auth/signup">Signup</a></li>
-          <% } %>
+            </ul>
+          </div><!-- dropdown-->
+        </div> <!-- div class hamb -->
+      <% } %>
+      <% if (currentUser) { %>
+      <div class="nav-hide">
+
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/auth/logout">Logout</a></li>
           </ul>
-        </div>
-      </div>
+      </div> <!--second nav-hide-->
+          <div class="hamb">
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu pull-right thinner" aria-labelledby="dropdownMenu2">
+                <li><a href="/">Home</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/auth/logout">Logout</a></li>
+              </ul>
+            </div><!-- dropdown-->
+          </div> <!-- div class hamb -->
+        <% } %>
+      </div><!--div center nav -->
     </nav>
 
     <div class="full-container">
-
       <%- body %>
     </div>
 
@@ -136,5 +145,3 @@
 
   </body>
 </html>
-
-
