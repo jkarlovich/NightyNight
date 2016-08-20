@@ -51,6 +51,11 @@ a:hover {
   text-decoration:none;
 }
 
+li h4 {
+  color: rebeccapurple;
+
+}
+
 .nav-button {
   display:inline-block;
   margin: 0 10px 0 0;

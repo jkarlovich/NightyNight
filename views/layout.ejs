@@ -22,7 +22,7 @@
             <ul>
               <li><a href="/">Home</a></li>
             </ul>
-            <button type="button" class="nav-button" data-toggle="modal" data-target="#myModal" id="login">LogIn</button>
+            <li><a href="#" data-toggle="modal" data-target="#myModal" id="login">LogIn</a></li>
             <div class="modal fade" id="myModal" role="dialog">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -52,7 +52,7 @@
                 </div> <!-- end modal content -->
               </div> <!-- end modal dialog -->
             </div> <!-- end modal -->
-            <button type="button" class="nav-button" data-toggle="modal" data-target="#secondModal" id="signup">SignUp</button>
+            <li><a href="#" data-toggle="modal" data-target="#secondModal" id="signup">SignUp</a></li>
             <div class="modal fade" id="secondModal" role="dialog">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -104,8 +104,8 @@
       <% } %>
       <% if (currentUser) { %>
       <div class="nav-hide">
-
           <ul>
+            <li><h4><%= currentUser.name %></h4></li>
             <li><a href="/">Home</a></li>
             <li><a href="/profile">Profile</a></li>
             <li><a href="/auth/logout">Logout</a></li>
