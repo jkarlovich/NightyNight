@@ -105,7 +105,7 @@
       <% if (currentUser) { %>
       <div class="nav-hide">
           <ul>
-            <li><h4><%= currentUser.name %></h4></li>
+            <li><a class="username"><%= currentUser.name %></a></li>
             <li><a href="/">Home</a></li>
             <li><a href="/profile">Profile</a></li>
             <li><a href="/auth/logout">Logout</a></li>

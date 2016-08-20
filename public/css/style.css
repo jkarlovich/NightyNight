@@ -51,9 +51,9 @@ a:hover {
   text-decoration:none;
 }
 
-li h4 {
+a.username {
   color: rebeccapurple;
-
+  padding: 0;
 }
 
 .nav-button {
